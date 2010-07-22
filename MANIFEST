@@ -9,6 +9,7 @@ ppport.h
 README
 t/00-load.t
 t/01-conv.t
+t/02-doctype.t
 xmlfast.c
 xmlfast.h
 META.yml                                 Module meta-data (added by MakeMaker)
