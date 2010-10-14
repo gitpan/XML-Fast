@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               XML-Fast
-version:            0.04
+version:            0.05
 abstract:           Simple and very fast XML to hash conversion
 author:
     - Mons Anderson <mons@cpan.org>
