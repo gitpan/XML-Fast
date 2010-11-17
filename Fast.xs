@@ -84,7 +84,7 @@ typedef struct {
 		char *kv = SvPV_nolen(key); \
 		int   kl = SvCUR(key); \
 		if( exists = hv_fetch(hv, kv, kl, 0) ) { \
-			if (SvTYPE( SvRV(*exists) ) == SVt_PVAV) { \
+			if ( SvROK(*exists) && SvTYPE( SvRV(*exists) ) == SVt_PVAV) { \
 				AV *av = (AV *) SvRV( *exists ); \
 				av_push( av, sv ); \
 			} \
@@ -400,9 +400,9 @@ void on_bytes_charset(void * pctx, char * data, unsigned int length) {
 	if (!pctx) croak("Context not passed to on_bytes");
 #endif
 	parsestate *ctx = pctx;
-	if (!ctx->textval && !length) {
-		//my_warn(ctx,"Called on_bytes with empty text and empty body");
-	}
+	//if (!ctx->textval && !length) {
+	//	my_warn(ctx,"Called on_bytes with empty text and empty body");
+	//}
 	SV *tmp = newSVpvn(data, length);
 	xml_sv_decode(ctx,tmp);
 	if (ctx->textval) {
@@ -444,9 +444,9 @@ void on_bytes(void * pctx, char * data, unsigned int length) {
 	if (!pctx) croak("Context not passed to on_bytes");
 #endif
 	parsestate *ctx = pctx;
-	if (!ctx->textval && !length) {
-		my_warn(ctx,"Called on_bytes with empty text and empty body");
-	}
+	//if (!ctx->textval && !length) {
+	//	my_warn(ctx,"Called on_bytes with empty text and empty body");
+	//}
 	if (ctx->textval) {
 		if (length > 0) { sv_catpvn(ctx->textval, data, length); }
 	} else {
