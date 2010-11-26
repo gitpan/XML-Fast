@@ -1,10 +1,10 @@
 --- #YAML:1.0
 name:               XML-Fast
-version:            0.08
+version:            0.09
 abstract:           Simple and very fast XML to hash conversion
 author:
     - Mons Anderson <mons@cpan.org>
-license:            unknown
+license:            perl
 distribution_type:  module
 configure_requires:
     ExtUtils::MakeMaker:  0
